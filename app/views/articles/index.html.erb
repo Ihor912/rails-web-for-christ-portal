@@ -1,0 +1,11 @@
+<h2>Categories</h2>
+<% @categories.each do |category| %>
+  <%= link_to category.name, category_path(category) %>
+<% end %>
+<h2>Articles list</h2>
+<div><%= link_to 'New Article', new_category_article_path(@category) %></div>
+<div style="float:left;">
+  <% @articles.each do |article| %>
+    <%= render article %>
+  <% end %>
+</div>
