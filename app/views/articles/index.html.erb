@@ -1,11 +1,22 @@
-<h2>Categories</h2>
-<% @categories.each do |category| %>
-  <%= link_to category.name, category_path(category) %>
-<% end %>
-<h2>Articles list</h2>
-<div><%= link_to 'New Article', new_category_article_path(@category) %></div>
-<div style="float:left;">
-  <% @articles.each do |article| %>
-    <%= render article %>
+<header>
+  <h1>
+    Welcome to Shine, <%= current_user.email %>
+  </h1>
+  <h2>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+  </h2>
+</header>
+
+<section>
+  <h2>Categories</h2>
+  <% @categories.each do |category| %>
+    <%= link_to category.name, category_path(category) %>
   <% end %>
-</div>
+  <h2>Articles list</h2>
+  <div><%= link_to 'New Article', new_category_article_path(@category) %></div>
+  <div style="float:left;">
+    <% @articles.each do |article| %>
+      <%= render article %>
+    <% end %>
+  </div>
+</section>
