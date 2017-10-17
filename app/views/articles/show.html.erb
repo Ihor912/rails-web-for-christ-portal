@@ -1,0 +1,12 @@
+<%= link_to "< Back", root_path %>
+<div>
+  <strong>
+    <%= @article.title %>
+  </strong>
+  Submitted <%= time_ago_in_words(@article.created_at) %> Ago
+  | <%= link_to "Edit", edit_category_article_path(@category,@article) %>
+  | <%= link_to "Delete", category_article_path(@category,@article), method: :delete, data: {confirm: "Are you sure?"} %><br>
+  <%=@article.body %><br>
+  <%=@article.user_id %><br>
+  <%=@article.moderated %>
+</div><br>
