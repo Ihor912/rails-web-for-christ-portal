@@ -1,14 +1,11 @@
-<%= form_for [@category, @article] do |f| %>
+<%= form_for(@article) do |f| %>
+	<p>
 	<% if @article.errors.any? %>
-	<div id="errors">
-	<h2><%= pluralize(@article.errors.count, "error") %> prevented this article from saving</h2>
-	<ul>
-	<% @article.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li>
+		<% @article.errors.full_messages.each do |msg| %>
+			<li><span style="color: red;"><%= msg %></span></li>
+		<% end %>
 	<% end %>
-	</ul>
-	</div>
-	<% end %>
+	</p>
 	<p>
 	<%= f.label :title %><br>
 	<%= f.text_field :title %>
@@ -27,7 +24,7 @@
 	</p>
 	<p>
 	<%= f.label :moderated %><br>
-	<%= f.text_field :moderated %>
+	<%= f.check_box :moderated %>
 	</p>
 	<p>
 	<%= f.submit %>
