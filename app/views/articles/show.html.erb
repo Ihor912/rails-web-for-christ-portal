@@ -4,8 +4,9 @@
     <%= @article.title %>
   </strong>
   Submitted <%= time_ago_in_words(@article.created_at) %> Ago
-  | <%= link_to "Edit", edit_category_article_path(@category,@article) %>
-  | <%= link_to "Delete", category_article_path(@category,@article), method: :delete, data: {confirm: "Are you sure?"} %><br>
+  | <%= link_to "Edit", edit_article_path(Category.find(@article.category_id).name, @article) %>
+  | <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %><br>
+  <%=@article.views %><br>
   <%=@article.body %><br>
   <%=@article.user_id %><br>
   <%=@article.moderated %>
