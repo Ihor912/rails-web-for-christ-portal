@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <header>
+      <h3>
+        <% if !user_signed_in? %>
+          <%= link_to "Log In", new_user_session_path %>
+        <% elsif user_signed_in? && current_user.admin? %>
+            <p class="sign_in">Ви увійшли, як Адмін</p>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+        <% else %>
+            <p class="sign_in">Ви увійшли, як <%= current_user.email.split('@')[0] %></p>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+        <% end %>
+      </h3>
+    </header>
     <%= yield %>
   </body>
 </html>
