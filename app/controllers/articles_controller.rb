@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_if_its_not_admin?, only: [:edit, :destroy]
   before_action :get_article, only: [:show, :edit, :update, :destroy, :article_popularity_rate]
+
   def index
   	@articles = Article.all.order('created_at DESC').is_moderated
   	@article = Article.new
@@ -15,7 +18,7 @@ class ArticlesController < ApplicationController
   end
   
   def create
-    @article=Article.new(article_params)
+    @article = current_user.articles.new(article_params)
     if @article.save
       redirect_to root_path
     else
@@ -60,4 +63,14 @@ class ArticlesController < ApplicationController
     new_view_count = @article.views.to_i + 1;
     @article.update(views: new_view_count)
   end
+
+  def check_if_its_not_admin?
+    if user_signed_in? && current_user.admin
+      true
+    else
+      flash[:alert] = "Будь-ласка ввійдіть під своїм логіном"
+      redirect_to bike_routes_path
+    end
+  end
+
 end
