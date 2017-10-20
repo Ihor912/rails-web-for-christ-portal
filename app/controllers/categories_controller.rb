@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+
   def show
     @category = Category.where(name: params['name']).first
     @categories = Category.all

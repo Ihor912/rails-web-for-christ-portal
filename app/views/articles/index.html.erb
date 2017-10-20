@@ -1,16 +1,18 @@
-<h2>Categories</h2>
+<h2>Теги</h2>
 <% @categories.each do |category| %>
   <%= link_to category.name, category_path(category.name) %>
 <% end %>
-<h2>Articles list</h2>
-<div><%= link_to 'New Article', new_article_path(@category.name) %></div>
+<h2>Статті</h2>
+<% if user_signed_in? && current_user.admin? %>
+  <div><%= link_to 'Нова стаття', new_article_path(@category.name) %></div>
+<% end %>
 <div style="float:left;">
   <% @articles.each do |article| %>
     <%= render article %>
   <% end %>
 </div>
 <aside style="float: right;">
-<h2>Popular Articles</h2>
+<h2>Популярні статті</h2>
   <% @popular_articles.each do |article| %>
     <%= render article %>
   <% end %>

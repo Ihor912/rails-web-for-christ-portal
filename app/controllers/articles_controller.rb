@@ -69,7 +69,7 @@ class ArticlesController < ApplicationController
       true
     else
       flash[:alert] = "Будь-ласка ввійдіть під своїм логіном"
-      redirect_to bike_routes_path
+      redirect_to new_user_session_path
     end
   end
 
