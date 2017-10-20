@@ -15,10 +15,6 @@
 	<%= f.text_area :body %>
 	</p>
 	<p>
-	<%= f.label :user_id %><br>
-	<%= f.text_field :user_id %>
-	</p>
-	<p>
 	<%= f.label :category_id %><br>
 	<%= f.select :category_id, options_for_select(@categories.collect{|category| [category.name, category.id] }, @category.id), html: {selected: true} %>
 	</p>
