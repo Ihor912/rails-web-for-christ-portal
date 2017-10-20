@@ -1,7 +1,7 @@
 <%= link_to "< Back", root_path %>
 <h2>Categories</h2>
 <% @categories.each do |category| %>
-  <%= link_to category.name, category_path(category) %>
+  <%= link_to category.name, category_path(category.name) %>
 <% end %>
 <h2>Articles list</h2>
 <div style="float:left;">

@@ -1,11 +1,14 @@
-<%= link_to "< Back", root_path %>
+<%= link_to "< Повернутись", root_path %>
 <div>
   <strong>
     <%= @article.title %>
   </strong>
-  Submitted <%= time_ago_in_words(@article.created_at) %> Ago
-  | <%= link_to "Edit", edit_category_article_path(@category,@article) %>
-  | <%= link_to "Delete", category_article_path(@category,@article), method: :delete, data: {confirm: "Are you sure?"} %><br>
+  Змінено <%= time_ago_in_words(@article.created_at) %> Ago
+  <% if user_signed_in? && current_user.admin? %>
+    | <%= link_to "Edit", edit_article_path(Category.find(@article.category_id).name, @article) %>
+    | <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Чи ви впевненні?"} %><br>
+  <% end %>
+  <%=@article.views %><br>
   <%=@article.body %><br>
   <%=@article.user_id %><br>
   <%=@article.moderated %>

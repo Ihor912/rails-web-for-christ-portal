@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :categories do
-    resources :articles
-  end
+  
+  get '/:name', to: "categories#show", as: :category	
+  resources :articles, path: "/:category_name/", controller: 'articles'
+
   root 'articles#index'
 end
