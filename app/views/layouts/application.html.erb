@@ -21,6 +21,12 @@
             <%= link_to "Вийти", destroy_user_session_path, method: :delete %>
         <% end %>
       </h3>
+      <% if notice.present? %>
+        <%= notice %>
+      <% end %>
+      <% if alert.present? %>
+        <%= alert %>
+      <% end %>
     </header>
     <%= yield %>
   </body>
