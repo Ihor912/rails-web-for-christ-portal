@@ -20,8 +20,10 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.new(article_params)
     if @article.save
+      flash[:notice] = "Стаття успішно упоблікована!"
       redirect_to root_path
     else
+      flash[:alert] = @article.errors.full_messages
       render 'new'
     end 		
   end

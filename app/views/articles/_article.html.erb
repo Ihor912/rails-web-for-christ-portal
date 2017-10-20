@@ -1,4 +1,7 @@
 <div>
-	<em style="font-size: 10px;">Змінено <%= time_ago_in_words(article.created_at) %> Ago</em><br>
-	<strong style="font-size: 25px;"><%= link_to article.title, article_path(Category.find(article.category_id).name, article) %> <%= article.views != 0 ? article.views : '' %></strong>
+	<em style="font-size: 10px;">Змінено <%= time_ago_in_words(article.created_at) %> Тому</em><br>
+	<strong style="font-size: 25px;">
+		<%= link_to article.title, article_path(Category.find(article.category_id).name, article) %> 
+		<%= article.views != 0 ? article.views : '' %>
+	</strong>
 </div><br>
