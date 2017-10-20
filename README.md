@@ -1,10 +1,10 @@
 # Rails web portal for sharing the Good News.
 
-To Run tha Application you need:
-
-Install and configure PostgreSQL on your machine.
+## Steps to run application:
 
 ###### Database setup:
+- First of all install and configure PostgreSQL on your machine.
+
 - In Terminal:
 ```
 bundle install;
@@ -57,3 +57,4 @@ rails server
 admin@mail.com
 testtest
 ```
+Enjoy! :)
