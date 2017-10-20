@@ -11,14 +11,14 @@
   <body>
     <header>
       <h3>
+        <%= link_to "Головна", root_path %>
+        
         <% if !user_signed_in? && !current_page?(new_user_session_path) %>
           <%= link_to "Увійти", new_user_session_path %>
         <% elsif user_signed_in? && current_user.admin? %>
-            <p class="sign_in">Ви увійшли, як Адмін</p>
-            <%= link_to "Вийти", destroy_user_session_path, method: :delete %>
+          Ви увійшли, як Адмін <%= link_to "Вийти", destroy_user_session_path, method: :delete %>
         <% elsif user_signed_in? %>
-            <p class="sign_in">Ви увійшли, як <%= current_user.email.split('@')[0] %></p>
-            <%= link_to "Вийти", destroy_user_session_path, method: :delete %>
+          Ви увійшли, як <%= current_user.email.split('@')[0] %> <%= link_to "Вийти", destroy_user_session_path, method: :delete %>
         <% end %>
       </h3>
       <% if notice.present? %>
