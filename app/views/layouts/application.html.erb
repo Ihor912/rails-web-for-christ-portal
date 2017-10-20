@@ -12,7 +12,8 @@
     <header>
       <h3>
         <%= link_to "Головна", root_path %>
-        
+        <%= link_to "Маєш запитання?", root_path %>
+
         <% if !user_signed_in? && !current_page?(new_user_session_path) %>
           <%= link_to "Увійти", new_user_session_path %>
         <% elsif user_signed_in? && current_user.admin? %>
