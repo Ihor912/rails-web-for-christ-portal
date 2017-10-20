@@ -7,20 +7,16 @@
 	<% end %>
 	</p>
 	<p>
-	<%= f.label :title %><br>
+	<%= f.label 'Заголовок: *' %><br>
 	<%= f.text_field :title %>
 	</p>
 	<p>
-	<%= f.label :body %><br>
+	<%= f.label 'Опис: *' %><br>
 	<%= f.text_area :body %>
 	</p>
 	<p>
-	<%= f.label :category_id %><br>
+	<%= f.label "Теги: *" %><br>
 	<%= f.select :category_id, options_for_select(@categories.collect{|category| [category.name, category.id] }, @category.id), html: {selected: true} %>
-	</p>
-	<p>
-	<%= f.label :moderated %><br>
-	<%= f.check_box :moderated %>
 	</p>
 	<p>
 	<%= f.submit %>

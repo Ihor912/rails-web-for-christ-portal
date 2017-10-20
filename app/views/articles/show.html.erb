@@ -10,5 +10,4 @@
   <%= @article.views %><br>
   <%= @article.body %><br>
   <%= "Змінено користувачем #{get_author_name_from_article(@article)} #{time_ago_in_words(@article.created_at)} ago" %>
-  <%= @article.moderated %>
 </div><br>
