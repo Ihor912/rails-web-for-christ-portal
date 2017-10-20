@@ -1,0 +1,45 @@
+<p>
+  <strong>Текст питання:</strong>
+  <%= @question.text %>
+</p>
+
+<p>
+  <strong>Відповідь:</strong>
+  <%= @question.answer %>
+</p>
+
+<p>
+  <strong>Приватність:</strong>
+  <%= @question.isPrivate %>
+</p>
+
+<p>
+  <strong>Автор:</strong>
+  <%= @question.author %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @question.email %>
+</p>
+
+<p>
+  <strong>Відповідач:</strong>
+  <%= @question.respondent_id %>
+</p>
+
+<p>
+  <strong>Likes:</strong>
+  <%= @question.likes %>
+</p>
+
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to 'Відповісти', edit_question_path(@question) %> |
+  <% if @question.approved %>
+    <td><%= link_to 'Сховати', disapprove_question_path(@question) %></td>
+  <% else %>
+    <td><%= link_to 'Опублікувати', approve_question_path(@question) %></td>
+  <% end %>
+  
+<% end %>
+<%= link_to 'Повернутись', questions_path %>

@@ -1,0 +1,47 @@
+<h1>Редагування Запитання</h1>
+
+<%= form_with(model: @question, local: true) do |form| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> заборонено зберігати це питання:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Текст запитання" %>
+    <%= form.text_field :text, id: :question_text %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Відповідь" %>
+    <%= form.text_area :answer, id: :question_answer %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Приватне" %>
+    <%= form.check_box :isPrivate, id: :question_isPrivate %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Автор" %>
+    <%= form.text_field :author, id: :question_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :question_email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Деталі', @question %> |
+<%= link_to 'Повернутись', questions_path %>
