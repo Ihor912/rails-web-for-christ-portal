@@ -1,26 +1,22 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_if_its_not_admin?, only: [:edit, :destroy]
-  before_action :get_article, only: [:show, :edit, :update, :destroy, :article_popularity_rate]
+  before_action :get_article, only: [:show, :edit, :destroy, :article_popularity_rate]
 
   def index
-  	@articles = Article.all.order('created_at DESC').is_moderated
-  	@article = Article.new
-    @category = Category.first
-    @categories = Category.all
-    @popular_articles = Article.all.is_moderated.most_popular
+  	@articles = Article.all.order('created_at DESC')
+    @tags = Tag.all
+    @popular_articles = Article.all.most_popular
   end
 
   def new
     @article = Article.new
-    @category = Category.first
-    @categories = Category.all
   end
   
   def create
     @article = current_user.articles.new(article_params)
     if @article.save
-      flash[:notice] = "Стаття успішно упоблікована!"
+      flash[:notice] = "Стаття успішно опублікована!"
       redirect_to root_path
     else
       flash[:alert] = @article.errors.full_messages
@@ -29,16 +25,14 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @category = Category.find(@article.category_id)
     article_popularity_rate
   end
 
   def edit
-    @category = Category.find(@article.category_id)
-    @categories = Category.all
   end
 
   def update
+    @article = Article.find_by(link_name: params['article']['link_name'])
     if @article.update_attributes(article_params)
       redirect_to root_path
     else
@@ -47,18 +41,17 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(@article.category_id)
     @article.destroy
     redirect_to root_path
   end
 
   private
   def article_params
-    params.require(:article).permit(:title, :body, :user_id, :moderated, :category_id, :views)
+    params.require(:article).permit(:title, :body, :user_id, :views, :link_name, :item, :additional_items, :tag_ids => [])
   end
 
   def get_article
-    @article = Article.find(params[:id])
+    @article = Article.find_by(link_name: params['link_name'])
   end
 
   def article_popularity_rate

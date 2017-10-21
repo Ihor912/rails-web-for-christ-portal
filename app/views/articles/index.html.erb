@@ -1,10 +1,10 @@
 <h2>Теги</h2>
-<% @categories.each do |category| %>
-  <%= link_to category.name, category_path(category.name) %>
+<% @tags.each do |tag| %>
+  <%= link_to tag.name, tag_path(tag.link_name) %>
 <% end %>
 <h2>Статті</h2>
 <% if user_signed_in? && current_user.admin? %>
-  <div><%= link_to 'Нова стаття', new_article_path(@category.name) %></div>
+  <div><%= link_to 'Нова стаття', new_article_path %></div>
 <% end %>
 <div style="float:left;">
   <% @articles.each do |article| %>

@@ -15,10 +15,14 @@
 	<%= f.text_area :body %>
 	</p>
 	<p>
-	<%= f.label "Теги: *" %><br>
-	<%= f.select :category_id, options_for_select(@categories.collect{|category| [category.name, category.id] }, @category.id), html: {selected: true} %>
+	<%= f.label 'Посилання на статтю: *' %><br>
+	<%= f.text_field :link_name %>
 	</p>
 	<p>
-	<%= f.submit %>
+    <%= f.label :tag_ids, "Теги:" %><br/>
+	<%=f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, { "data-placeholder" => "Вибрати", multiple: true, id: "article_tag_id"} %><br/>
+	</p>
+	<p>
+	<%= f.submit%>
 	</p>
 <% end %>

@@ -1,0 +1,13 @@
+
+<%= link_to "< Back", root_path %>
+<h2>Tags</h2>
+<% @tags.each do |tag| %>
+  <%= link_to tag.name, tag_path(tag.link_name) %>
+<% end %>
+<h2>Articles list</h2>
+<div style="float:left;">
+  <% @articles.each do |article| %>
+    <%= render article %>
+  <% end %>
+</div>
+

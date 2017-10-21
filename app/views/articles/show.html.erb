@@ -4,8 +4,8 @@
     <%= @article.title %>
   </strong>
   <% if user_signed_in? && current_user.admin? %>
-    | <%= link_to "Edit", edit_article_path(Category.find(@article.category_id).name, @article) %>
-    | <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Чи ви впевненні?"} %><br>
+    | <%= link_to "Edit", edit_article_path(@article.link_name) %>
+    | <%= link_to "Delete", article_path(@article.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"} %><br>
   <% end %>
   <%= @article.views %><br>
   <%= @article.body %><br>
