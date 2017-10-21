@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  get '/:name', to: "categories#show", as: :category	
-  resources :articles, path: "/:category_name/", controller: 'articles'
+  get '/tags/:link_name', to: "tags#show", as: :tag
+  get '/articles/new', to: "articles#new"
+  get '/articles/:link_name', to: "articles#show"
+  get '/articles/:link_name/edit', to: "articles#edit"
+  patch '/articles', to: "articles#update"
+  delete '/articles/:link_name', to: "articles#destroy"
+  resources :articles
   resources :questions do
     collection do
       get :index_all_not_approved

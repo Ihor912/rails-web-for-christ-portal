@@ -4,7 +4,7 @@ class CreateArticles < ActiveRecord::Migration[5.1]
       t.string :title
       t.text :body
       t.integer :user_id
-      t.boolean :moderated
+      t.string :link_name
 
       t.timestamps
     end
