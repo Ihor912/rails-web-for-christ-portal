@@ -6,5 +6,5 @@ class Article < ApplicationRecord
 	validates :body, presence: true, length: { minimum: 50, maximum: 1000 }
 	validates :link_name, presence: true, length: { maximum: 25 }, uniqueness: true
 
-	scope :most_popular, -> { self.order("views DESC").limit(5) }
+	scope :most_popular, -> { self.order("views DESC").limit(4) }
 end

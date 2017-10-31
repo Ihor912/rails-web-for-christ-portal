@@ -1,19 +1,62 @@
-<h2>Теги</h2>
-<% @tags.each do |tag| %>
-  <%= link_to tag.name, tag_path(tag.link_name) %>
-<% end %>
-<h2>Статті</h2>
-<% if user_signed_in? && current_user.admin? %>
-  <div><%= link_to 'Нова стаття', new_article_path %></div>
-<% end %>
-<div style="float:left;">
-  <% @articles.each do |article| %>
-    <%= render article %>
-  <% end %>
+<div class="row">
+  <!-- Blog -->
+  <div class="col place-left">
+    <% @articles.each do |article| %>
+      <div class="article-short">
+        <%= render article %>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+  
+  <div class="col small-col place-right">
+    <!-- Questions -->
+    <div class="publication-short">
+      <%= link_to questions_path do %>
+        <div class="container-without-padding">
+          <%= image_tag "woods.jpg", alt: "Nature", class: "publication-image" %>
+        </div>
+        <div class="container">
+          <h4><b>Маєш Запитання?</b></h4>
+          <p>Ти можеш написати сюди. Тут є так то і так то і тому то! укпукукп купеквм мукпи кпкп вуцуацуа!</p>
+        </div>
+      <% end %>
+    </div>
+    <hr>
+
+    <!-- Small post list -->
+    <div class="small-post-list">
+      <div class="container">
+        <h4>Популярні статті</h4>
+      </div>
+      <ul class="small-post-list-ul">
+        <% @popular_articles.each do |article| %>
+          <li class="small-post-list-li">
+            <%= link_to article_path(article.link_name) do %>
+              <%= image_tag "workshop.jpg", alt: "Image", class: "small-post-list-image place-left" %>
+              <span class="small-post-list-li-label"><%= truncate(article.title, length: 57) %></span><br>
+              <span><%= truncate(article.body, length: 47) %></span>
+            <% end %>
+          </li>
+        <% end %>
+        </li>  
+      </ul>
+    </div>
+    <hr>
+
+    <!-- Tags -->
+    <div class="tags-list">
+      <div class="container">
+        <h4>Теги</h4>
+      </div>
+      <div class="container tags-list-body">
+        <p>
+          <% @tags.each do |tag| %>
+            <span class="tag"><%= link_to tag.name, tag_path(tag.link_name) %></span>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    
+  </div>
 </div>
-<aside style="float: right;">
-<h2>Популярні статті</h2>
-  <% @popular_articles.each do |article| %>
-    <%= render article %>
-  <% end %>
-</aside>

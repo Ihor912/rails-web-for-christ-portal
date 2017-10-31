@@ -4,31 +4,57 @@
     <title>Web For Christ</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-      <h3>
-        <%= link_to "Головна", root_path %>
-        <%= link_to "Маєш запитання?", questions_path %>
+    <div class="content">
+      <header>
+        <div class="nav-menu">
+          <div class="place-left">
+            <% if user_signed_in? && current_user.admin? %>
+              <%= link_to root_path do %> <button class="button border"> <b><span>Головна</span></b> </button> <% end %>
+              <%= link_to new_article_path do %> <button class="button border"> <b><span>Нова стаття</span></b> </button> <% end %>
+              <%= link_to index_all_not_approved_questions_path do %> <button class="button border"> <b><span>Непр. запитання</span></b> </button> <% end %>
+              <%= link_to '/' do %> <button class="button border"> <b><span>Теги</span></b> </button> <% end %>
+            <% end %>
+          </div>
 
-        <% if !user_signed_in? && !current_page?(new_user_session_path) %>
-          <%= link_to "Увійти", new_user_session_path %>
-        <% elsif user_signed_in? && current_user.admin? %>
-          Ви увійшли, як Адмін <%= link_to "Вийти", destroy_user_session_path, method: :delete %>
-        <% elsif user_signed_in? %>
-          Ви увійшли, як <%= current_user.email.split('@')[0] %> <%= link_to "Вийти", destroy_user_session_path, method: :delete %>
+          <div class="place-right">
+            <% if !user_signed_in? && !current_page?(new_user_session_path) %>
+              <%= link_to root_path do %> <button class="button border"> <b><span>Головна</span></b> </button> <% end %>
+              <%= link_to new_user_session_path do %> <button class="button border"> <b><span>Увійти</span></b> </button> <% end %>
+            <% elsif user_signed_in? && current_user.admin? %>
+              <b class="label">Ви увійшли, як Адмін</b>
+              <%= link_to destroy_user_session_path, method: :delete do %> <button class="button border"> <b><span>Вийти</span></b> </button> <% end %>
+            <% elsif user_signed_in? %>
+              <b class="label">Ви увійшли, як <%= current_user.email.split('@')[0] %></b>
+              <%= link_to destroy_user_session_path, method: :delete do %> <button class="button border"> <b><span>Вийти</span></b> </button> <% end %>
+            <% end %>
+          </div>
+
+        </div>
+        <div class="container center-align">
+          <div class="site-title"><b>WEB FOR CHRIST</b></div>
+          <p>І пізнаєте Істину і Істина зробить вас <span class="tag"> вільними</span>!</p>
+        </div>
+
+        <% flash.each do |name, msg| %>
+          <% if msg.is_a?(String) %>
+            <%= content_tag :div, msg, :class => "flash_#{name}" %>
+          <% end %>
         <% end %>
-      </h3>
-      <% if notice.present? %>
-        <%= notice %>
-      <% end %>
-      <% if alert.present? %>
-        <%= alert %>
-      <% end %>
-    </header>
-    <%= yield %>
+
+      </header>
+
+      <%= yield %>
+
+      <footer class="center-align">
+        © 2016 - Web For Christ
+      </footer>
+    </div>
   </body>
 </html>
