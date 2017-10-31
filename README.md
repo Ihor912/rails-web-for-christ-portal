@@ -29,17 +29,6 @@ bundle exec rails db:migrate
 ###### Admin User Setup:
 - In Terminal:
 ```
-rails generate migration AddAdminToUsers
-```
-- Add code to change method in db/migrate/..._add_admin_to_users.rb:
-```
-add_column :users, :admin, :boolean, default: false
-```
-- In Terminal:
-```
-bundle exec rails db:migrate
-```
-```
 rails c
 admin_user = User.new(:email => "admin@mail.com", :password => 'testtest', :password_confirmation => 'testtest', :admin => true)
 admin_user.save
