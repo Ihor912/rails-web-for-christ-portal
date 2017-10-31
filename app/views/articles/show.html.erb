@@ -7,6 +7,7 @@
     | <%= link_to "Edit", edit_article_path(@article.link_name) %>
     | <%= link_to "Delete", article_path(@article.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"} %><br>
   <% end %>
+  <%= image_tag(@article.image_url(:standart)) %><br>
   <%= @article.views %><br>
   <%= @article.body %><br>
   <%= "Змінено користувачем #{get_author_name_from_article(@article)} #{time_ago_in_words(@article.created_at)} ago" %>

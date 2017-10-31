@@ -33,9 +33,9 @@
         <% @popular_articles.each do |article| %>
           <li class="small-post-list-li">
             <%= link_to article_path(article.link_name) do %>
-              <%= image_tag "workshop.jpg", alt: "Image", class: "small-post-list-image place-left" %>
+              <%= image_tag article.image_url(:thumbnail), alt: "Image", class: "small-post-list-image place-left" %>
               <span class="small-post-list-li-label"><%= truncate(article.title, length: 57) %></span><br>
-              <span><%= truncate(article.body, length: 47) %></span>
+              <span><%= truncate(article.body, length: 33) %></span>
             <% end %>
           </li>
         <% end %>
