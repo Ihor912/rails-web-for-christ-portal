@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: wfccloud
+  api_key: '119222132645216'
+  api_secret: QXPnc5i-X0B8auva4ol61LYE1hI
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: wfccloud
+  api_key: '119222132645216'
+  api_secret: QXPnc5i-X0B8auva4ol61LYE1hI
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: wfccloud
+  api_key: '119222132645216'
+  api_secret: QXPnc5i-X0B8auva4ol61LYE1hI
+  enhance_image_tag: true
+  static_image_support: false

@@ -14,12 +14,18 @@
 }
 
 .article-image {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    border: 1px solid #b4b4b4;
-    height: 100%;
+  background-repeat: no-repeat;    
+  background-size: cover;    
+  background-position: center center;    
+  width: auto;    
+  border: 1px solid #b4b4b4;    
+} 
+.publication-image {    
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  border: 1px solid #b4b4b4;
 }
 
 .publication-short {
@@ -27,15 +33,6 @@
     margin: 16px 0 0 0 !important;
     color: #000 !important;
     background-color:#fff !important;
-}
-
-.publication-image {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    border: 1px solid #b4b4b4;
-    height: 100%;
 }
 
 .button {
