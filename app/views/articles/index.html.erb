@@ -34,8 +34,8 @@
           <li class="small-post-list-li">
             <%= link_to article_path(article.link_name) do %>
               <%= image_tag "workshop.jpg", alt: "Image", class: "small-post-list-image place-left" %>
-              <span class="small-post-list-li-label"><%= truncate(article.title, length: 57) %></span><br>
-              <span><%= truncate(article.body, length: 47) %></span>
+              <span class="small-post-list-li-label"><%= truncate(article.title, length: 40) %></span><br>
+              <span><%= truncate(article.body, length: 33) %></span>
             <% end %>
           </li>
         <% end %>
