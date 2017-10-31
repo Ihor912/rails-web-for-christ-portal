@@ -1,4 +1,3 @@
-
 .col {
     width: 65% !important;
 }
@@ -15,7 +14,12 @@
 }
 
 .article-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     width: 100%;
+    border: 1px solid #b4b4b4;
+    height: 100%;
 }
 
 .publication-short {
@@ -26,7 +30,12 @@
 }
 
 .publication-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     width: 100%;
+    border: 1px solid #b4b4b4;
+    height: 100%;
 }
 
 .button {
