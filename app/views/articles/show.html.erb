@@ -21,7 +21,7 @@
   <div class="container-with-large-padding">
     <p><%= @article.body %></p>
   </div>
-  <div class="row container-with-large-padding" style="padding-bottom: 20px; padding-top: 10px;">
+  <div class="row container-with-large-padding" style="padding-top: 10px;">
       <div class="place-left">
         <p><span class="padding-medium">
           Додано користувачем <b><%= "#{get_author_name_from_article(@article)}" %></b> 
@@ -35,4 +35,13 @@
           </span></p>
       </div>
   </div>
+  <div class="row container-with-large-padding" style="padding-bottom: 30px;">
+    <div class="container tags-list-body">
+      <p>Мітки: 
+        <% @article.tags.each do |tag| %>
+          <span class="tag"><%= link_to tag.name, tag_path(tag.link_name) %></span>
+        <% end %>
+      </p>
+    </div>
+	</div>
 </div>
