@@ -19,6 +19,13 @@
 	<%= f.text_field :link_name %>
 	</p>
 	<p>
+	<%= f.label 'Додати картинку: *' %><br>
+	<%= f.file_field :image %>
+	</p>
+	<% if f.object.image? %>
+      <%= image_tag f.object.image.thumbnail.url %>
+    <% end %>
+	<p>
     <%= f.label :tag_ids, "Теги:" %><br/>
 	<%=f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, { "data-placeholder" => "Вибрати", multiple: true, id: "article_tag_id"} %><br/>
 	</p>

@@ -53,7 +53,11 @@ a {
   padding: 0.01em;
 }
 
-.container:after, .container:before {
+.container-with-large-padding {
+  padding: 0.01em 46px;
+}
+
+.container:after, .container:before, .container-with-large-padding:after, .container-with-large-padding:before {
   content: "";
   display: table;
   clear: both;

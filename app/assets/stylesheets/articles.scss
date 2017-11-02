@@ -1,4 +1,3 @@
-
 .col {
     width: 65% !important;
 }
@@ -7,15 +6,24 @@
     width: 30% !important;
 }
 
-.article-short {
+.article {
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
     margin: 16px !important;
     color: #000 !important;
     background-color:#fff !important;
 }
 
-.article-image {
-    width: 100%;
+.article-image { 
+  width: auto;
+  border: 1px solid #b4b4b4;    
+}
+
+.publication-image {    
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  border: 1px solid #b4b4b4;
 }
 
 .publication-short {
@@ -23,10 +31,6 @@
     margin: 16px 0 0 0 !important;
     color: #000 !important;
     background-color:#fff !important;
-}
-
-.publication-image {
-    width: 100%;
 }
 
 .button {

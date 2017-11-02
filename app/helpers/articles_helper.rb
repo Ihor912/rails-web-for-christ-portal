@@ -5,6 +5,6 @@ module ArticlesHelper
       end
   
       user = User.find(article.user_id)
-      user.email.split('@')[0]
+      user.email.split('@')[0].capitalize
     end
 end
