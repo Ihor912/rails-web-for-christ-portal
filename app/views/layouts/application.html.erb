@@ -33,8 +33,8 @@
         </div>
         <div class="col small-col place-right">
           <%= render 'questions/questions_banner' %>
-          <%= render 'articles/small_post_list' %>
-          <%= render 'tags/tagslist' %>
+          <%= render 'articles/small_post_list', articles: Article.all.most_popular %>
+          <%= render 'tags/tagslist', tags: Tag.all %>
         </div>
       </div>
 

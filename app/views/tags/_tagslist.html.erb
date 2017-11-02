@@ -4,8 +4,8 @@
 	</div>
 	<div class="container tags-list-body">
 		<p>
-			<% Tag.all.each do |tag| %>
-			<span class="tag"><%= link_to tag.name, tag_path(tag.link_name) %></span>
+			<% tags.each do |tag| %>
+				<span class="tag"><%= link_to tag.name, tag_path(tag.link_name) %></span>
 			<% end %>
 		</p>
 	</div>
