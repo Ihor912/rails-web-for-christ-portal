@@ -1,0 +1,17 @@
+<div class="small-post-list">
+	<div class="container">
+		<h4>Популярні статті</h4>
+	</div>
+	<ul class="small-post-list-ul">
+	<% Article.all.most_popular.each do |article| %>
+		<li class="small-post-list-li">
+			<%= link_to article_path(article.link_name) do %>
+				<%= image_tag article.image_url(:thumbnail), alt: "Image", class: "small-post-list-image place-left" %>
+				<span class="small-post-list-li-label"><%= truncate(article.title, length: 57) %></span><br>
+				<span><%= truncate(article.body, length: 33) %></span>
+			<% end %>
+		</li>
+	<% end %>
+	</ul>
+</div>
+<hr>

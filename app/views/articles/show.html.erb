@@ -1,40 +1,38 @@
-<div class="col place-left">
-  <% if user_signed_in? && current_user.admin? %>
-    <div style="margin-left: 15px;">
-      <%= link_to edit_article_path(@article.link_name) do %>
-        <button class="button padding-large border"> <b>Редагувати</b> </button>
-      <% end %>
-      <%= link_to article_path(@article.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"} do %>
-        <button class="button padding-large border"> <b>Видалити</b> </button>
-      <% end %>
-    </div>
-  <% end %>
+<% if user_signed_in? && current_user.admin? %>
+  <div style="margin-left: 15px;">
+    <%= link_to edit_article_path(@article.link_name) do %>
+      <button class="button padding-large border"> <b>Редагувати</b> </button>
+    <% end %>
+    <%= link_to article_path(@article.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"} do %>
+      <button class="button padding-large border"> <b>Видалити</b> </button>
+    <% end %>
+  </div>
+<% end %>
 
-  <div class="article">
-    <div class="container-without-padding">
-      <%= image_tag @article.image_url(:standart), class: "article-image" %><br>
-    </div>
-    <div class="container-with-large-padding">
-      <h2>
-		    <b class="place-left"> <%= @article.title %> </b>
-      </h2>
-    </div>
-    <div class="container-with-large-padding">
-      <p><%= @article.body %></p>
-    </div>
-    <div class="row container-with-large-padding" style="padding-bottom: 20px; padding-top: 10px;">
-        <div class="place-left">
-          <p><span class="padding-medium">
-            Додано користувачем <b><%= "#{get_author_name_from_article(@article)}" %></b> 
-            <%= "#{time_ago_in_words(@article.created_at)} ago" %>
+<div class="article">
+  <div class="container-without-padding">
+    <%= image_tag @article.image_url(:standart), class: "article-image" %><br>
+  </div>
+  <div class="container-with-large-padding">
+    <h2>
+      <b class="place-left"> <%= @article.title %> </b>
+    </h2>
+  </div>
+  <div class="container-with-large-padding">
+    <p><%= @article.body %></p>
+  </div>
+  <div class="row container-with-large-padding" style="padding-bottom: 20px; padding-top: 10px;">
+      <div class="place-left">
+        <p><span class="padding-medium">
+          Додано користувачем <b><%= "#{get_author_name_from_article(@article)}" %></b> 
+          <%= "#{time_ago_in_words(@article.created_at)} ago" %>
+        </span></p>
+      </div>
+      <div class="place-right">
+          <p><span class="padding-large">
+            <b>Переглядів:  </b> 
+            <span class="tag"><%= @article.views != 0 ? @article.views : '' %></span>
           </span></p>
-        </div>
-        <div class="place-right">
-          	<p><span class="padding-large">
-				      <b>Переглядів:  </b> 
-				      <span class="tag"><%= @article.views != 0 ? @article.views : '' %></span>
-			      </span></p>
-        </div>
-    </div>
+      </div>
   </div>
 </div>

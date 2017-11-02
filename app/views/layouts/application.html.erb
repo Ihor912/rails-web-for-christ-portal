@@ -13,30 +13,8 @@
   <body>
     <div class="content">
       <header>
-        <div class="nav-menu">
-          <div class="place-left">
-            <% if user_signed_in? && current_user.admin? %>
-              <%= link_to root_path do %> <button class="button border"> <b><span>Головна</span></b> </button> <% end %>
-              <%= link_to new_article_path do %> <button class="button border"> <b><span>Нова стаття</span></b> </button> <% end %>
-              <%= link_to index_all_not_approved_questions_path do %> <button class="button border"> <b><span>Непр. запитання</span></b> </button> <% end %>
-              <%= link_to '/' do %> <button class="button border"> <b><span>Теги</span></b> </button> <% end %>
-            <% end %>
-          </div>
+        <%= render 'layouts/navmenu' %>
 
-          <div class="place-right">
-            <% if !user_signed_in? && !current_page?(new_user_session_path) %>
-              <%= link_to root_path do %> <button class="button border"> <b><span>Головна</span></b> </button> <% end %>
-              <%= link_to new_user_session_path do %> <button class="button border"> <b><span>Увійти</span></b> </button> <% end %>
-            <% elsif user_signed_in? && current_user.admin? %>
-              <b class="label">Ви увійшли, як Адмін</b>
-              <%= link_to destroy_user_session_path, method: :delete do %> <button class="button border"> <b><span>Вийти</span></b> </button> <% end %>
-            <% elsif user_signed_in? %>
-              <b class="label">Ви увійшли, як <%= current_user.email.split('@')[0] %></b>
-              <%= link_to destroy_user_session_path, method: :delete do %> <button class="button border"> <b><span>Вийти</span></b> </button> <% end %>
-            <% end %>
-          </div>
-
-        </div>
         <div class="container center-align">
           <div class="site-title"><b>WEB FOR CHRIST</b></div>
           <p>І пізнаєте Істину і Істина зробить вас <span class="tag"> вільними</span>!</p>
@@ -47,10 +25,18 @@
             <%= content_tag :div, msg, :class => "flash_#{name}" %>
           <% end %>
         <% end %>
-
       </header>
 
-      <%= yield %>
+      <div class="row">
+        <div class="col place-left">
+          <%= yield %>
+        </div>
+        <div class="col small-col place-right">
+          <%= render 'questions/questions_banner' %>
+          <%= render 'articles/small_post_list' %>
+          <%= render 'tags/tagslist' %>
+        </div>
+      </div>
 
       <footer class="center-align">
         © 2017 - Web For Christ
