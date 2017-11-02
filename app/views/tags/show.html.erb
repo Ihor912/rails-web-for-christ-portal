@@ -1,5 +1,4 @@
 
-<%= link_to "< Back", root_path %>
 <h2>Tags</h2>
 <% @tags.each do |tag| %>
   <%= link_to tag.name, tag_path(tag.link_name) %>
