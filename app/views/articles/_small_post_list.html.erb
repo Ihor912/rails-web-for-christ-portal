@@ -3,7 +3,7 @@
 		<h4>Популярні статті</h4>
 	</div>
 	<ul class="small-post-list-ul">
-	<% Article.all.most_popular.each do |article| %>
+	<% articles.each do |article| %>
 		<li class="small-post-list-li">
 			<%= link_to article_path(article.link_name) do %>
 				<%= image_tag article.image_url(:thumbnail), alt: "Image", class: "small-post-list-image place-left" %>
