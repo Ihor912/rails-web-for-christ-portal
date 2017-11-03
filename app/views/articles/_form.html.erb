@@ -1,35 +1,22 @@
-<%= form_for(@article) do |f| %>
-	<p>
+<%= form_for(@article, :html => { :class => 'form' }) do |f| %>
 	<% if @article.errors.any? %>
 		<% @article.errors.full_messages.each do |msg| %>
 			<li><span style="color: red;"><%= msg %></span></li>
 		<% end %>
 	<% end %>
-	</p>
-	<p>
-	<%= f.label 'Заголовок: *' %><br>
-	<%= f.text_field :title %>
-	</p>
-	<p>
-	<%= f.label 'Опис: *' %><br>
-	<%= f.text_area :body %>
-	</p>
-	<p>
-	<%= f.label 'Посилання на статтю: *' %><br>
-	<%= f.text_field :link_name %>
-	</p>
-	<p>
-	<%= f.label 'Додати картинку: *' %><br>
-	<%= f.file_field :image %>
-	</p>
+	<%= f.text_field :title, :id => 'title', placeholder: "ЗАГОЛОВОК" %>
+	<%= f.text_area :body, :id => 'body', placeholder: "ОПИС" %>
+	<%= f.text_field :link_name, :id => 'link_name', placeholder: "ПОСИЛАННЯ НА СТАТТЮ" %>
+	<div class="file-button">
+		<%= f.file_field :image, value: "ДОДАТИ ЗОБРАЖЕННЯ" %>
+	</div>
 	<% if f.object.image? %>
       <%= image_tag f.object.image.thumbnail.url %>
     <% end %>
-	<p>
-    <%= f.label :tag_ids, "Теги:" %><br/>
-	<%=f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, { "data-placeholder" => "Вибрати", multiple: true, id: "article_tag_id"} %><br/>
-	</p>
-	<p>
-	<%= f.submit%>
-	</p>
+	<div class="select-container">
+		<%=f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, { "data-placeholder" => "Вибрати", multiple: true, id: "article_tag_id"} %>
+	</div>
+	<div class="submit-button-container">
+		<%= f.submit "ОПУБЛІКУВАТИ", class: "submit-button" %>
+	</div>
 <% end %>
