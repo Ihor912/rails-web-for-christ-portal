@@ -232,6 +232,20 @@ footer {
   text-align: center;
 }
 
+.index-tag-list {
+  background-color: white;
+  font-size: 25px;
+  color: black;
+  display: block;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: left;
+}
+
+.edit-tag, .delete-tag {
+  font-size: 18px;
+}
+
 hr {
   border: 0;
   border-top: 1px solid #eee;

@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_if_its_not_admin?, only: [:edit, :destroy]
-  before_action :get_article, only: [:show, :edit, :destroy, :article_popularity_rate]
+  before_action :get_article, only: [:show, :edit, :update, :destroy, :article_popularity_rate]
 
   def index
   	@articles = Article.all.order('created_at DESC')
@@ -32,7 +32,6 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find_by(link_name: params['article']['link_name'])
     if @article.update_attributes(article_params)
       redirect_to root_path
     else
