@@ -4,19 +4,14 @@
 			<li><span style="color: red;"><%= msg %></span></li>
 		<% end %>
 	<% end %>
-	<%= f.text_field :title, :id => 'title', placeholder: "ЗАГОЛОВОК" %>
-	<%= f.text_area :body, :id => 'body', placeholder: "ОПИС" %>
-	<%= f.text_field :link_name, :id => 'link_name', placeholder: "ПОСИЛАННЯ НА СТАТТЮ" %>
-	<div class="file-button">
-		<%= f.file_field :image, value: "ДОДАТИ ЗОБРАЖЕННЯ" %>
-	</div>
+
+	<%= f.text_field :title, :id => 'title', placeholder: "Заголовок" %>
+	<%= f.text_area :body, :id => 'body', placeholder: "Опис" %>
+	<%= f.text_field :link_name, :id => 'link_name', placeholder: "Посилання на статтю" %>
+	<%= f.file_field :image, value: "ДОДАТИ ЗОБРАЖЕННЯ" %>
 	<% if f.object.image? %>
-      <%= image_tag f.object.image.thumbnail.url %>
+      <div class="image-container"><%= image_tag f.object.image.thumbnail.url %></div>
     <% end %>
-	<div class="select-container">
-		<%=f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, { "data-placeholder" => "Вибрати", multiple: true, id: "article_tag_id"} %>
-	</div>
-	<div class="submit-button-container">
-		<%= f.submit "ОПУБЛІКУВАТИ", class: "submit-button" %>
-	</div>
+	<%=f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, { "data-placeholder" => "Вибрати", multiple: true, id: "article_tag_id"} %>
+	<%= f.submit "ОПУБЛІКУВАТИ", class: "form-button" %>
 <% end %>
