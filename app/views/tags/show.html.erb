@@ -1,12 +1,14 @@
-
-<h2>Tags</h2>
-<% @tags.each do |tag| %>
-  <%= link_to tag.name, tag_path(tag.link_name) %>
-<% end %>
-<h2>Articles list</h2>
-<div style="float:left;">
-  <% @articles.each do |article| %>
-    <%= render article %>
-  <% end %>
+<div style="margin-left: 15px;">
+    <div class="container tags-list-body" style="text-align: center;">
+      <p>
+        <span class="tag"><%= link_to @tag.name, tag_path(@tag.link_name) %>:</span>
+      </p>
+  </div>
 </div>
+
+<% @articles.each do |article| %>
+  <div class="article">
+    <%= render article %>
+  </div>
+<% end %>
 
