@@ -62,3 +62,39 @@ en:
       not_saved:
         one: "1 помилка заборинила це %{resource} від збереження:"
         other: "%{count} помилок заборонили це %{resource} від збереження:"
+  datetime:
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one:   "1 секунду"
+        other: "%{count} секунд"
+      x_seconds:
+        one:   "1 секунду"
+        other: "%{count} секунд"
+      less_than_x_minutes:
+        one:   "хвилину"
+        other: "%{count} хвилин"
+      x_minutes:
+        one:   "1 хвилину"
+        other: "%{count} хвилин"
+      about_x_hours:
+        one:   "1 годину"
+        other: "%{count} годин"
+      x_days:
+        one:   "1 день"
+        other: "%{count} дні"
+      about_x_months:
+        one:   "1 місяць"
+        other: "%{count} місяці"
+      x_months:
+        one:   "1 місяць"
+        other: "%{count} місяці"
+      about_x_years:
+        one:   "1 рік"
+        other: "%{count} роки"
+      over_x_years:
+        one:   "1 рік"
+        other: "%{count} роки"
+      almost_x_years:
+        one:   "1 рік"
+        other: "%{count} роки" 
