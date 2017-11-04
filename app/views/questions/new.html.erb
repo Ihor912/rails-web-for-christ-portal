@@ -1,41 +1,33 @@
-<h1>Нове Запитання</h1>
-
-<%= form_with(model: @question, local: true) do |form| %>
-  <% if @question.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@question.errors.count, "error") %> заборонено зберігати це питання:</h2>
-
-      <ul>
-      <% @question.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<div style="margin-left: 15px;">
+  <%= link_to questions_path do %>
+    <button class="button padding-large border"> <b>Назад до усіх питань</b> </button>
   <% end %>
+</div>
 
-  <div class="field">
-    <%= form.label "Текст запитання" %>
-    <%= form.text_area :text, id: :question_text %>
+<div class="question">
+  <div class="container-with-large-padding">
+    <h2>
+      <b class="place-left">Нове Запитання</b>
+    </h2>
   </div>
+  <div class="container-without-padding">
+    <%= form_with(model: @question, local: true, :html => { :class => 'form' }) do |form| %>
+      <% if @question.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@question.errors.count, "error") %> заборонено зберігати це питання:</h2>
+          <ul>
+            <% @question.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label "Приватне" %>
-    <%= form.check_box :isPrivate, id: :question_isPrivate %>
+      <%= form.text_area :text, id: :question_text, placeholder: "Текст запитання" %>
+      <%# <%= form.check_box :isPrivate, id: :question_isPrivate %>
+      <%= form.text_field :author, id: :question_author, placeholder: "Ваше Ім'я" %>
+      <%= form.text_field :email, id: :question_email, placeholder: "Email" %>
+      <%= form.submit "ОПУБЛІКУВАТИ", class: "form-button" %>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label "Автор" %>
-    <%= form.text_field :author, id: :question_author %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :question_email %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Повернутись', questions_path %>
+</div>

@@ -1,13 +1,16 @@
-<% if user_signed_in? && current_user.admin? %>
-  <div style="margin-left: 15px;">
+<div style="margin-left: 15px;">
+  <%= link_to articles_path do %>
+    <button class="button padding-large border"> <b>Назад до усіх статтей</b> </button>
+  <% end %>
+  <% if user_signed_in? && current_user.admin? %>
     <%= link_to edit_article_path(@article.link_name) do %>
       <button class="button padding-large border"> <b>Редагувати</b> </button>
     <% end %>
-    <%= link_to article_path(@article.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"} do %>
-      <button class="button padding-large border"> <b>Видалити</b> </button>
-    <% end %>
-  </div>
+  <%= link_to article_path(@article.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"} do %>
+    <button class="button padding-large border"> <b>Видалити</b> </button>
+  <% end %>
 <% end %>
+</div>
 
 <div class="article">
   <div class="container-without-padding">

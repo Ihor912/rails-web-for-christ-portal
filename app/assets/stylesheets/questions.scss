@@ -1,3 +1,21 @@
-// Place all the styles related to the Questions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.question {
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+    margin: 16px !important;
+    color: #000 !important;
+    background-color:#fff !important;
+}
+
+.question-banner {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
+    margin: 16px 0 0 0 !important;
+    color: #000 !important;
+    background-color:#fff !important;
+
+    .banner-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        width: 100%;
+        border: 1px solid #b4b4b4;
+    }
+}

@@ -1,45 +1,30 @@
-<p>
-  <strong>Текст питання:</strong>
-  <%= @question.text %>
-</p>
-
-<p>
-  <strong>Відповідь:</strong>
-  <%= @question.answer %>
-</p>
-
-<p>
-  <strong>Приватність:</strong>
-  <%= @question.isPrivate %>
-</p>
-
-<p>
-  <strong>Автор:</strong>
-  <%= @question.author %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @question.email %>
-</p>
-
-<p>
-  <strong>Відповідач:</strong>
-  <%= @question.respondent_id %>
-</p>
-
-<p>
-  <strong>Likes:</strong>
-  <%= @question.likes %>
-</p>
-
-<% if user_signed_in? && current_user.admin? %>
-  <%= link_to 'Відповісти', edit_question_path(@question) %> |
-  <% if @question.approved %>
-    <td><%= link_to 'Сховати', disapprove_question_path(@question) %></td>
-  <% else %>
-    <td><%= link_to 'Опублікувати', approve_question_path(@question) %></td>
+<div style="margin-left: 15px;">
+  <%= link_to questions_path do %>
+    <button class="button padding-large border"> <b>Назад до усіх питань</b> </button>
   <% end %>
-  
-<% end %>
-<%= link_to 'Повернутись', questions_path %>
+</div>
+
+<div class="question">
+  <div class="container">	<h3>
+      <b class="place-left"><%= @question.text %></b>
+      <span class="date-label place-right"> <%= time_ago_in_words(@question.created_at) %> тому</em></span>
+  </h3> </div>
+  <div class="container">
+    <p><%= @question.answer %></p>
+    <div class="row">
+      <div class="place-left">
+        <% if user_signed_in? && current_user.admin? %>
+          <%= link_to edit_question_path(@question) do %> <button class="button border"> <b>Змінити відповідь</b> </button> <% end %>
+          <%= link_to disapprove_question_path(@question) do %> <button class="button border"> <b>Сховати</b> </button> <% end %>
+          <%= link_to @question, method: :delete, data: { confirm: 'Чи ви впевненні?' } do %> <button class="button border"> <b>Видалити</b> </button> <% end %>
+        <% end %>
+      </div>
+      <div class="place-right">
+        <p><span>
+          <b>Автор:  </b> 
+          <span class="tag"><%= @question.author %></span>
+        </span></p>
+      </div>
+    </div>
+  </div>
+</div>
