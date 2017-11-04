@@ -15,10 +15,12 @@
       <header>
         <%= render 'layouts/navmenu' %>
 
-        <div class="container center-align">
-          <div class="site-title"><b>WEB FOR CHRIST</b></div>
-          <p>І пізнаєте Істину і Істина зробить вас <span class="tag"> вільними</span>!</p>
-        </div>
+        <%= link_to root_path do %>
+          <div class="container center-align">
+            <div class="site-title"><b>WEB FOR CHRIST</b></div>
+            <p>І пізнаєте Істину і Істина зробить вас <span class="tag"> вільними</span>!</p>
+          </div>
+        <% end %>
 
         <% flash.each do |name, msg| %>
           <% if msg.is_a?(String) %>
