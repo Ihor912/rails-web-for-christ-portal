@@ -1,0 +1,17 @@
+<!-- Tags -->
+<div class="row">
+    <div class="tags-list">
+      <div class="container">
+        <h4>Теги</h4>
+      </div>
+      <div class="container tags-list-body">
+        <p>
+          <% @tags.each do |tag| %>
+            <span class="index-tag-list" ><%= link_to tag.name, tag_path(tag.link_name) %>
+               <%= link_to "Редагувати", edit_tag_path(tag.link_name), class: 'edit-tag' %> | <%= link_to "Видалити", tag_path(tag.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"}, class: 'delete-tag' %><br>
+            </span>
+          <% end %>
+        </p>
+      </div>
+    </div>
+</div>
