@@ -42,38 +42,38 @@
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
     margin: 16px 0 0 0 !important;
 
-    .small-post-list-li {
+    li {
         padding-top:12px !important;
         padding-bottom:23px !important;
         color:#000 !important;
         background-color: #fff !important;
     }
 
-    .small-post-list-li:hover {
+    li:hover {
         background-color:#ccc !important;
     }
     
-    .small-post-list-ul {
+    ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
     }
 
-    .small-post-list-ul li {
+    ul li {
         padding: 8px 16px;
         border-bottom: 1px solid #ddd;
     }
     
-    .small-post-list-ul li:last-child {
+    ul li:last-child {
         border-bottom: none;
     }
     
-    .small-post-list-image {
+    img {
         width: 50px;
         margin-right: 16px !important;
     }
     
-    .small-post-list-li-label {
+    .label {
         font-size: 18px !important;
     }
 }
