@@ -1,8 +1,5 @@
 <div class="nav-menu">
     <div class="place-left">
-        <% if !current_page?(root_path) %>
-            <%= link_to :back do %> <button class="button border"> <b><span>Повернутись</span></b> </button> <% end %>
-        <% end %>
         <% if user_signed_in? && current_user.admin? %>
             <%= link_to root_path do %> <button class="button border"> <b><span>Статті</span></b> </button> <% end %>
             <%= link_to new_article_path do %> <button class="button border"> <b><span>Нова стаття</span></b> </button> <% end %>
