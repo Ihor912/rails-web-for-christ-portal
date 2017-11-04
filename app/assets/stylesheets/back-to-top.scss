@@ -1,0 +1,15 @@
+a.back_to_top {
+    display: none;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background: #33acb7 asset_url("up_arrow.png") no-repeat center 43%;
+    text-indent: -9999px;
+    //border-radius: 30px;
+  
+    &:hover {
+        background: #41cfdd asset_url("up_arrow.png") no-repeat center 43%;
+    }
+}
