@@ -1,6 +1,6 @@
 <div style="margin-left: 15px;">
   <%= link_to questions_path do %>
-    <button class="button padding-large border"> <b>Назад до усіх питань</b> </button>
+    <button class="button padding-large border">Назад до усіх питань</button>
   <% end %>
 </div>
 
@@ -14,9 +14,9 @@
     <div class="row">
       <div class="place-left">
         <% if user_signed_in? && current_user.admin? %>
-          <%= link_to edit_question_path(@question) do %> <button class="button border"> <b>Змінити відповідь</b> </button> <% end %>
-          <%= link_to disapprove_question_path(@question) do %> <button class="button border"> <b>Сховати</b> </button> <% end %>
-          <%= link_to @question, method: :delete, data: { confirm: 'Чи ви впевненні?' } do %> <button class="button border"> <b>Видалити</b> </button> <% end %>
+          <%= link_to edit_question_path(@question) do %> <button class="button border">Змінити відповідь</button> <% end %>
+          <%= link_to disapprove_question_path(@question) do %> <button class="button border">Сховати</button> <% end %>
+          <%= link_to @question, method: :delete, data: { confirm: 'Чи ви впевненні?' } do %> <button class="button border">Видалити</button> <% end %>
         <% end %>
       </div>
       <div class="place-right">

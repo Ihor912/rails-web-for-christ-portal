@@ -7,6 +7,7 @@
 	<% end %>
 
 	<%= f.text_field :title, :id => 'title', placeholder: "Заголовок" %>
+	<%= render 'layouts/text_editor_toolbar' %>
 	<%= f.text_area :body, :id => 'body', placeholder: "Опис" %>
 	<%= f.text_field :link_name, :id => 'link_name', placeholder: "Посилання на статтю" %>
 	<%= f.file_field :image, value: "ДОДАТИ ЗОБРАЖЕННЯ" %>
@@ -16,3 +17,9 @@
 	<%=f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, { "data-placeholder" => "Вибрати", multiple: true, id: "article_tag_id"} %>
 	<%= f.submit "ОПУБЛІКУВАТИ", class: "form-button" %>
 <% end %>
+<script>
+  var editor = new wysihtml5.Editor("body", {
+    toolbar:      "text-editor-toolbar",
+    parserRules:  wysihtml5ParserRules
+  });
+</script>

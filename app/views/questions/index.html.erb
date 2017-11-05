@@ -1,11 +1,11 @@
 <div style="margin-left: 15px;">
   <% if user_signed_in? && current_user.admin? %>
     <%= link_to index_all_not_approved_questions_path do %> 
-      <button class="button padding-large border"> <b>Неопубліковані запитання</b> </button> 
+      <button class="button padding-large border">Неопубліковані запитання</button> 
     <% end %>
   <% end %>
   <%= link_to new_question_path do %>
-    <button class="button padding-large border"> <b>Нове Запитання</b> </button>
+    <button class="button padding-large border">Нове Запитання</button>
   <% end %>
 </div>
 
@@ -20,9 +20,9 @@
       <div class="row">
         <div class="place-left">
           <% if user_signed_in? && current_user.admin? %>
-            <%= link_to edit_question_path(question) do %> <button class="button border"> <b>Змінити відповідь</b> </button> <% end %>
-            <%= link_to disapprove_question_path(question) do %> <button class="button border"> <b>Сховати</b> </button> <% end %>
-            <%= link_to question, method: :delete, data: { confirm: 'Чи ви впевненні?' } do %> <button class="button border"> <b>Видалити</b> </button> <% end %>
+            <%= link_to edit_question_path(question) do %> <button class="button border">Змінити відповідь</button> <% end %>
+            <%= link_to disapprove_question_path(question) do %> <button class="button border">Сховати</button> <% end %>
+            <%= link_to question, method: :delete, data: { confirm: 'Чи ви впевненні?' } do %> <button class="button border">Видалити</button> <% end %>
           <% end %>
         </div>
         <div class="place-right">
