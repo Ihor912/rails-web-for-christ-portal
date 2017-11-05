@@ -6,13 +6,13 @@
     <%= link_to edit_article_path(@article.link_name) do %>
       <button class="button padding-large border"> <b>Редагувати</b> </button>
     <% end %>
-  <%= link_to article_path(@article.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"} do %>
-    <button class="button padding-large border"> <b>Видалити</b> </button>
+    <%= link_to article_path(@article.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"} do %>
+      <button class="button padding-large border"> <b>Видалити</b> </button>
+    <% end %>
   <% end %>
-<% end %>
 </div>
 
-<div class="article">
+<div class="post-container">
   <div class="container-without-padding">
     <%= image_tag @article.image_url(:standart), class: "article-image" %><br>
   </div>

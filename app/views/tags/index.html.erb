@@ -1,0 +1,20 @@
+<div style="margin-left: 15px;">
+  <%= link_to new_tag_path do %>
+    <button class="button padding-large border"> <b>Додати Тег</b> </button>
+  <% end %>
+</div>
+
+<div class="post-container">
+  <div class="container vertical-medium-paddings">
+    <% @tags.each do |tag| %>
+      <span class="tag vertical-small-margins horizontal-small-margins"><%= link_to tag.name, tag_path(tag.link_name) %> </span>
+      <%= link_to edit_tag_path(tag.link_name) do %>
+        <button class="button padding-medium border"> <b>Редагувати</b> </button>
+      <% end %>
+      <%= link_to tag_path(tag.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"} do %>
+        <button class="button padding-medium border"> <b>Видалити</b> </button>
+      <% end %>
+      <br>
+    <% end %>
+  </div>
+</div>

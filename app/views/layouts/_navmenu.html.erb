@@ -3,10 +3,11 @@
         <% if user_signed_in? && current_user.admin? %>
             <% if !current_page?(root_path) %>
                 <%= link_to root_path do %> <button class="button border"> <b><span>Статті</span></b> </button> <% end %>
+            <% elsif current_page?(root_path) %>
+                <%= link_to new_article_path do %> <button class="button border"> <b><span>Нова стаття</span></b> </button> <% end %>
             <% end %>
-            <%= link_to new_article_path do %> <button class="button border"> <b><span>Нова стаття</span></b> </button> <% end %>
             <%= link_to index_all_not_approved_questions_path do %> <button class="button border"> <b><span>Непр. запитання</span></b> </button> <% end %>
-            <%= link_to '/' do %> <button class="button border"> <b><span>Теги</span></b> </button> <% end %>
+            <%= link_to tags_path do %> <button class="button border"> <b><span>Теги</span></b> </button> <% end %>
         <% end %>
     </div>
 
