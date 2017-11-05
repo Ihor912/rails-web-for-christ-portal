@@ -1,0 +1,11 @@
+<%= form_for(@tag, :html => { :class => 'form' }) do |f| %>
+	<%= hidden_field_tag :link_name, "#{@tag.link_name}" %>
+	<% if @tag.errors.any? %>
+		<% @tag.errors.full_messages.each do |msg| %>
+			<li><span style="color: red;"><%= msg %></span></li>
+		<% end %>	
+	<% end %>
+	<%= f.text_field :name, :id => 'name', placeholder: "Назва" %>
+	<%= f.text_field :link_name, :id => 'link_name', placeholder: "Посилання на тег" %>
+	<%= f.submit "ЗБЕРЕГТИ", class: "form-button" %>
+<% end %>
