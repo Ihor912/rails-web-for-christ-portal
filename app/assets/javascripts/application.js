@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
+//= require wysihtml5
+//= require parser_rules/advanced
 //= require_tree .

@@ -33,6 +33,7 @@ gem 'devise'
 gem 'carrierwave', '~> 1.2', '>= 1.2.1'
 gem 'cloudinary', '~> 1.8', '>= 1.8.1'
 gem 'jquery-rails'
+gem 'wysihtml5-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
