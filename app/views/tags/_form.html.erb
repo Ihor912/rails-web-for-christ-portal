@@ -5,7 +5,7 @@
 			<li><span style="color: red;"><%= msg %></span></li>
 		<% end %>	
 	<% end %>
-	<%= f.text_field :name, :id => 'name', placeholder: "Заголовок" %>
+	<%= f.text_field :name, :id => 'name', placeholder: "Назва" %>
 	<%= f.text_field :link_name, :id => 'link_name', placeholder: "Посилання на тег" %>
-	<%= f.submit "ОПУБЛІКУВАТИ", class: "form-button" %>
+	<%= f.submit "ЗБЕРЕГТИ", class: "form-button" %>
 <% end %>
