@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :quotes
   devise_for :users
   
   get '/tags/new', to: "tags#new"

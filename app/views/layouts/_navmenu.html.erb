@@ -7,7 +7,12 @@
                 <%= link_to new_article_path do %> <button class="button border">Нова стаття</button> <% end %>
             <% end %>
             <%= link_to index_all_not_approved_questions_path do %> <button class="button border">Непр. запитання</button> <% end %>
-            <%= link_to tags_path do %> <button class="button border">Теги</button> <% end %>
+            <% if !current_page?(quotes_path) %>
+                <%= link_to quotes_path do %> <button class="button border">Цитати</button> <% end %>
+            <% end %>
+            <% if !current_page?(tags_path) %>
+                <%= link_to tags_path do %> <button class="button border">Теги</button> <% end %>
+            <% end %>
         <% end %>
     </div>
 
@@ -17,6 +22,9 @@
                 <%= link_to questions_path do %> <button class="button border">Запитання</button> <% end %>
             <% else %>
                 <%= link_to root_path do %> <button class="button border">Статті</button> <% end %>
+            <% end %>
+            <% if !current_page?(quotes_path) %>
+                <%= link_to quotes_path do %> <button class="button border">Цитати</button> <% end %>
             <% end %>
             <% if !current_page?(new_user_session_path) %>
                 <%= link_to new_user_session_path do %> <button class="button border">Увійти</button> <% end %>

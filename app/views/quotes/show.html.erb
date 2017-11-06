@@ -1,0 +1,22 @@
+<div style="margin-left: 15px;">
+  <%= link_to quotes_path do %>
+    <button class="button padding-large border">Назад до усіх цитат</button>
+  <% end %>
+</div>
+
+<div class="post-container">
+  <div class="container">	<h3>
+    <b class="place-left date-label" style="font-size: 20px;"><%= @quote.author %></b>
+  </h3> </div>
+  <div class="container vertical-small-paddings">
+    <%= @quote.text %>
+    <% if user_signed_in? && current_user.admin? %>
+      <div class="row" style="padding-top: 10px;">
+        <div class="place-left">
+          <%= link_to edit_quote_path(@quote) do %> <button class="button border">Редагувати</button> <% end %>
+          <%= link_to @quote, method: :delete, data: { confirm: 'Чи ви впевненні?' } do %> <button class="button border">Видалити</button> <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

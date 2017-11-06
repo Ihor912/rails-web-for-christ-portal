@@ -1,0 +1,16 @@
+<div style="margin-left: 15px;">
+  <%= link_to quotes_path do %>
+    <button class="button padding-large border"> <b>Назад до усіх цитат</b> </button>
+  <% end %>
+</div>
+
+<div class="post-container">
+    <div class="container-with-large-padding">
+        <h2>
+            <b class="place-left">Редагування цитати</b>
+        </h2>
+    </div>
+    <div class="container-without-padding">
+        <%= render 'form', quote: @quote %>
+    </div>
+</div>

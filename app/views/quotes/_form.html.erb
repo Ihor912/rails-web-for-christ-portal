@@ -1,0 +1,18 @@
+<%= form_with(model: quote, local: true, :html => { :class => 'form' }) do |form| %>
+  <% if quote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
+
+      <ul>
+      <% quote.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.text_area :text, id: :quote_text, placeholder: "Текст цитати" %>
+  <%= form.text_field :author, id: :quote_author, placeholder: "Ваше Ім'я" %>
+
+  <%= form.submit "ЗБЕРЕГТИ", class: "form-button" %>
+<% end %>
