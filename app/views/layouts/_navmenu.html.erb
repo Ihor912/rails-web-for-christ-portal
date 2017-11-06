@@ -2,31 +2,31 @@
     <div class="place-left">
         <% if user_signed_in? && current_user.admin? %>
             <% if !current_page?(root_path) %>
-                <%= link_to root_path do %> <button class="button border"> <b><span>Статті</span></b> </button> <% end %>
+                <%= link_to root_path do %> <button class="button border">Статті</button> <% end %>
             <% elsif current_page?(root_path) %>
-                <%= link_to new_article_path do %> <button class="button border"> <b><span>Нова стаття</span></b> </button> <% end %>
+                <%= link_to new_article_path do %> <button class="button border">Нова стаття</button> <% end %>
             <% end %>
-            <%= link_to index_all_not_approved_questions_path do %> <button class="button border"> <b><span>Непр. запитання</span></b> </button> <% end %>
-            <%= link_to tags_path do %> <button class="button border"> <b><span>Теги</span></b> </button> <% end %>
+            <%= link_to index_all_not_approved_questions_path do %> <button class="button border">Непр. запитання</button> <% end %>
+            <%= link_to tags_path do %> <button class="button border">Теги</button> <% end %>
         <% end %>
     </div>
 
     <div class="place-right">
         <% if !user_signed_in? %>
             <% if current_page?(root_path) %>
-                <%= link_to questions_path do %> <button class="button border"> <b><span>Запитання</span></b> </button> <% end %>
+                <%= link_to questions_path do %> <button class="button border">Запитання</button> <% end %>
             <% else %>
-                <%= link_to root_path do %> <button class="button border"> <b><span>Статті</span></b> </button> <% end %>
+                <%= link_to root_path do %> <button class="button border">Статті</button> <% end %>
             <% end %>
             <% if !current_page?(new_user_session_path) %>
-                <%= link_to new_user_session_path do %> <button class="button border"> <b><span>Увійти</span></b> </button> <% end %>
+                <%= link_to new_user_session_path do %> <button class="button border">Увійти</button> <% end %>
             <% end %>
         <% elsif user_signed_in? && current_user.admin? %>
             <b class="label">Ви увійшли, як Адмін</b>
-            <%= link_to destroy_user_session_path, method: :delete do %> <button class="button border"> <b><span>Вийти</span></b> </button> <% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %> <button class="button border">Вийти</button> <% end %>
         <% elsif user_signed_in? %>
             <b class="label">Ви увійшли, як <%= current_user.email.split('@')[0] %></b>
-            <%= link_to destroy_user_session_path, method: :delete do %> <button class="button border"> <b><span>Вийти</span></b> </button> <% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %> <button class="button border">Вийти</button> <% end %>
         <% end %>
     </div>
 </div>

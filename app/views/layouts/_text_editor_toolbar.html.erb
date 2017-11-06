@@ -1,0 +1,28 @@
+<div id="text-editor-toolbar" style="display: none;">
+    <a data-wysihtml5-command="bold"><button class="button border">Bold</button></a>
+    <a data-wysihtml5-command="italic"><button class="button border">Italic</button></a>
+    <a data-wysihtml5-command="underline"><button class="button border">Underline</button></a>
+    <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1"><button class="button border">h1</button></a>
+    <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2"><button class="button border">h2</button></a>
+    <a data-wysihtml5-command="insertOrderedList"><button class="button border">Ordered List</button></a>
+    <a data-wysihtml5-command="insertUnorderedList"><button class="button border">Unordered List</button></a>
+    <a data-wysihtml5-command="insertImage"><button class="button border">Image</button></a>
+    <a data-wysihtml5-command="createLink"><button class="button border">Link</button></a>
+
+    <div data-wysihtml5-dialog="insertImage" style="display: none; padding-top: 3px;">
+        <input data-wysihtml5-dialog-field="src" placeholder='Image URL "http://..."'>
+        Align:
+        <select data-wysihtml5-dialog-field="className">
+            <option value="">default</option>
+            <option value="wysiwyg-float-left">left</option>
+            <option value="wysiwyg-float-right">right</option>
+        </select>
+        <a data-wysihtml5-dialog-action="save"><button class="button border">OK</button></a>
+        <a data-wysihtml5-dialog-action="cancel"><button class="button border">Cancel</button></a>
+    </div>
+    <div data-wysihtml5-dialog="createLink" style="display: none; padding-top: 3px;">
+        <input data-wysihtml5-dialog-field="href" placeholder='http://' class="text">
+        <a data-wysihtml5-dialog-action="save"><button class="button border">OK</button></a>
+        <a data-wysihtml5-dialog-action="cancel"><button class="button border">Cancel</button></a>
+    </div>
+</div>

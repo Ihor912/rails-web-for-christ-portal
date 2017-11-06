@@ -10,11 +10,11 @@
 	</h3>
 </div>
 <div class="container">
-	<p><%= truncate(article.body, length: 600) %></p>
+	<p><%= truncate(strip_tags(article.body), length: 600) %></p>
 	<div class="row">
         <div class="place-left">
           	<p> <%= link_to article_path(article.link_name) do %>
-					<button class="button padding-large border"> <b>ДЕТАЛЬНІШЕ »</b> </button>
+					<button class="button padding-large border">ДЕТАЛЬНІШЕ »</button>
 				<% end %> </p>
         </div>
         <div class="place-right">

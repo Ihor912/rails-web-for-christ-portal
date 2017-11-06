@@ -1,13 +1,13 @@
 <div style="margin-left: 15px;">
   <%= link_to articles_path do %>
-    <button class="button padding-large border"> <b>Назад до усіх статтей</b> </button>
+    <button class="button padding-large border">Назад до усіх статтей</button>
   <% end %>
   <% if user_signed_in? && current_user.admin? %>
     <%= link_to edit_article_path(@article.link_name) do %>
-      <button class="button padding-large border"> <b>Редагувати</b> </button>
+      <button class="button padding-large border">Редагувати</button>
     <% end %>
     <%= link_to article_path(@article.link_name), method: :delete, data: {confirm: "Чи ви впевненні?"} do %>
-      <button class="button padding-large border"> <b>Видалити</b> </button>
+      <button class="button padding-large border">Видалити</button>
     <% end %>
   <% end %>
 </div>
@@ -22,7 +22,7 @@
     </h2>
   </div>
   <div class="container-with-large-padding">
-    <p><%= @article.body %></p>
+    <p><%= @article.body.html_safe %></p>
   </div>
   <div class="row container-with-large-padding" style="padding-top: 10px;">
       <div class="place-left">
