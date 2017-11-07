@@ -28,7 +28,7 @@
       <div class="place-left">
         <p><span class="padding-medium">
           Додано користувачем <b><%= "#{get_author_name_from_article(@article)}" %></b> 
-          <%= "#{time_ago_in_words(@article.created_at)} ago" %>
+          <%= "#{get_custom_date @article.created_at} тому" %>
         </span></p>
       </div>
       <div class="place-right">
