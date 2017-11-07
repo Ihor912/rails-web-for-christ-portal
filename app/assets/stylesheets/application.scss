@@ -109,8 +109,9 @@ footer {
 }
 
 .nav-menu {
-  max-width: 1350px;
+  // max-width: 1400px;
   margin-left: 30px;
+  margin-right: 30px;
 
   .button {
     background-color:#f1f1f1 !important;
@@ -138,9 +139,13 @@ footer {
 
 .col {
   float: left;
-  width: 100%;
+  width: 65%;
   padding: 0 17px;
   overflow: hidden;
+}
+
+.small-col {
+  width: 30% !important;
 }
 
 /// forms
