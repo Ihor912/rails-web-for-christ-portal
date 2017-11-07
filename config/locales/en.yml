@@ -30,4 +30,73 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  datetime:
+    distance_in_words:
+      half_a_minute: "півхвилини"
+      other_scope:
+        less_than_x_seconds:
+          other: "%{count} секунду"
+        x_seconds:
+          other: "%{count} секунду"
+        less_than_x_minutes:
+          other: "%{count} хвилину"
+        x_minutes:
+          other: "%{count} хвилину"
+        about_x_hours:
+          other: "%{count} годину"
+        x_days:
+          other: "%{count} день"
+        x_months:
+          other: "%{count} місяців"
+        about_x_years:
+          other: "більше %{count} року"
+      few_scope:
+        less_than_x_seconds:
+          other: "%{count} секунд"
+        x_seconds:
+          other: "%{count} секунд"
+        less_than_x_minutes:
+          other: "%{count} хвилин"
+        x_minutes:
+          other: "%{count} хвилин"
+        about_x_hours:
+          other: "%{count} годин"
+        x_days:
+          other: "%{count} днів"
+        x_months:
+          other: "%{count} місяців"
+        about_x_years:
+          other: "більше %{count} років"
+      common_scope:
+        less_than_x_seconds:
+          one:   "%{count} секунду"
+          other: "%{count} секунди"
+        x_seconds:
+          one:   "%{count} секунду"
+          other: "%{count} секунди"
+        less_than_x_minutes:
+          one:   "менше хвилини"
+          few:   "%{count} хвилин"
+          many:  "%{count} хвилин"
+          other: "%{count} хвилини"
+        x_minutes:
+          one:   "%{count} хвилину"
+          other: "%{count} хвилини"
+        about_x_hours:
+          one:   "%{count} годину"
+          other: "%{count} години"
+        x_days:
+          one:   "%{count} день"
+          other: "%{count} дні"
+        about_x_months:
+          one:   "%{count} місяць"
+          other: "%{count} місяці"
+        x_months:
+          one:   "%{count} місяць"
+          other: "%{count} місяці"
+        about_x_years:
+          one:   "%{count} рік"
+          other: "%{count} роки"
+        over_x_years:
+          one:   "більше %{count} року"
+          other: "більше %{count} років"
