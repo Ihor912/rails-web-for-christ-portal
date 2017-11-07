@@ -81,7 +81,7 @@ en:
           other: "%{count} хвилини"
         x_minutes:
           one:   "%{count} хвилину"
-          other: "%{count} хвилини"
+          other: "%{count} хвилин"
         about_x_hours:
           one:   "%{count} годину"
           other: "%{count} години"
