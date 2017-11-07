@@ -76,8 +76,6 @@ en:
           other: "%{count} секунди"
         less_than_x_minutes:
           one:   "менше хвилини"
-          few:   "%{count} хвилин"
-          many:  "%{count} хвилин"
           other: "%{count} хвилини"
         x_minutes:
           one:   "%{count} хвилину"
