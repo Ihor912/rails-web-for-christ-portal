@@ -1,5 +1,5 @@
 module DateHelper
-  def get_custom_date(created_at, scope_type = 'common_scope')
+  def get_date(created_at, scope_type = 'common_scope')
 	created_at = created_at.to_time
 	other_values = [21, 31, 41, 51]
 	few_values = (5..20).to_a
