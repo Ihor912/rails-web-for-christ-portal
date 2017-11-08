@@ -14,7 +14,7 @@
     <%= form_with(model: @question, local: true, :html => { :class => 'form' }) do |form| %>
       <% if @question.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@question.errors.count, "error") %> заборонено зберігати це питання:</h2>
+          <h2>Заборонено зберігати це питання:</h2>
           <ul>
             <% @question.errors.full_messages.each do |message| %>
               <li><%= message %></li>
