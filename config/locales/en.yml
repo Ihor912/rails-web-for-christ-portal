@@ -110,6 +110,8 @@ en:
           other: "%{count} місяців"
         about_x_years:
           other: "більше %{count} року"
+        over_x_years:
+          other: "більше %{count} року"
       few_scope:
         less_than_x_seconds:
           other: "%{count} секунд"
@@ -126,6 +128,8 @@ en:
         x_months:
           other: "%{count} місяців"
         about_x_years:
+          other: "більше %{count} років"
+        over_x_years:
           other: "більше %{count} років"
       common_scope:
         less_than_x_seconds:
