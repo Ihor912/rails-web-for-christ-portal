@@ -29,7 +29,62 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+
 en:
+  attributes:
+      text:
+        "Поле тексту"
+      author: 
+        "Поле вашого імені"
+      title:
+        "Заголовок"
+  errors: 
+    format: "%{attribute} %{message}"
+    messages: 
+      accepted: має бути прийнятий
+      blank: не може бути порожнім
+      present: має бути порожнім
+      confirmation: не збігається з підтвердженням
+      empty: не може бути порожнім
+      equal_to: має дорівнювати %{count}
+      even: має бути парним
+      exclusion: зарезервовано
+      greater_than: має бути більше ніж %{count}
+      greater_than_or_equal_to: має бути більше ніж або дорівнювати %{count}
+      inclusion: не включено до переліку
+      invalid: недійсний
+      less_than: має бути менше ніж %{count}
+      less_than_or_equal_to: має бути менше ніж або дорівнювати %{count}
+      model_invalid: 'Виникли помилки: %{errors}'
+      not_a_number: не число
+      not_an_integer: не э цілим числом
+      odd: має бути непарним
+      required: не може бути порожнім
+      taken: вже зайнятий
+      too_long:
+        few: занадто довгий (максимум %{count} знаки)
+        many: занадто довгий (максимум %{count} знаків)
+        one: занадто довгий (максимум %{count} знак)
+        other: занадто довгий (максимум %{count} знаку)
+      too_short:
+        few: занадто короткий (мінімум %{count} знаки)
+        many: занадто короткий (мінімум %{count} знаків)
+        one: занадто коротке (мінімум %{count} знак)
+        other: занадто коротке (мінімум %{count} знаків)
+      wrong_length:
+        few: неправильна довжина (має бути %{count} знаки)
+        many: неправильна довжина (має бути %{count} знаків)
+        one: неправильна довжина (має бути %{count} знак)
+        other: неправильна довжина (має бути %{count} знаку)
+      other_than: має відрізнятись від %{count}
+    template:
+      body: 'Помилки виявлено в таких полях:'
+      header:
+        few: "%{model} не збережено через %{count} помилки"
+        many: "%{model} не збережено через %{count} помилок"
+        one: "%{model} не збережено через %{count} помилку"
+        other: "%{model} не збережено через %{count} помилки"
+     
   datetime:
     distance_in_words:
       half_a_minute: "півхвилини"
