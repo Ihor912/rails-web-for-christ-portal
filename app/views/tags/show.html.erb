@@ -1,8 +1,6 @@
-<div style="margin-left: 15px;">
-    <div class="container tags-list-body" style="text-align: center;">
-      <p>
-        <span class="tag"><%= link_to @tag.name, tag_path(@tag.link_name) %>:</span>
-      </p>
+<div class="post-toolbar" class="post-toolbar">
+  <div class="container tags-list-body" style="text-align: center;">
+    <p> <span class="tag"><%= link_to @tag.name, tag_path(@tag.link_name) %>:</span> </p>
   </div>
 </div>
 

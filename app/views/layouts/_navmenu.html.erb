@@ -1,9 +1,9 @@
 <div class="nav-menu">
     <div class="place-left">
         <% if user_signed_in? && current_user.admin? %>
-            <% if !current_page?(root_path) %>
+            <% if !current_page?(root_path) && !current_page?(articles_path)  %>
                 <%= link_to root_path do %> <button class="button border">Статті</button> <% end %>
-            <% elsif current_page?(root_path) %>
+            <% elsif current_page?(root_path) && current_page?(articles_path) %>
                 <%= link_to new_article_path do %> <button class="button border">Нова стаття</button> <% end %>
             <% end %>
             <%= link_to index_all_not_approved_questions_path do %> <button class="button border">Непр. запитання</button> <% end %>

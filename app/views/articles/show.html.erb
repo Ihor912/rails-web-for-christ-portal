@@ -1,4 +1,4 @@
-<div style="margin-left: 15px;">
+<div class="post-toolbar">
   <%= link_to articles_path do %>
     <button class="button padding-large border">Назад до усіх статтей</button>
   <% end %>
@@ -12,10 +12,8 @@
   <% end %>
 </div>
 
-<div class="post-container">
-  <div class="container-without-padding">
-    <%= image_tag @article.image_url(:standart), class: "article-image" %><br>
-  </div>
+<div class="article post-container">
+  <%= image_tag @article.image_url(:standart), class: "article-image" %><br>
   <div class="container-with-large-padding">
     <h2>
       <b class="place-left"> <%= @article.title %> </b>
