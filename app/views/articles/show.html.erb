@@ -24,20 +24,20 @@
   </div>
   <div class="row container-with-large-padding" style="padding-top: 10px;">
       <div class="place-left">
-        <p><span class="padding-medium">
+        <p>
           Додано користувачем <b><%= "#{get_author_name_from_article(@article)}" %></b> 
           <%= "#{get_date @article.created_at} тому" %>
-        </span></p>
+        </p>
       </div>
       <div class="place-right">
-          <p><span class="padding-large">
+          <p><span class="view-count-label">
             <b>Переглядів:  </b> 
             <span class="tag"><%= @article.views != 0 ? @article.views : '' %></span>
           </span></p>
       </div>
   </div>
   <div class="row container-with-large-padding" style="padding-bottom: 30px;">
-    <div class="container tags-list-body">
+    <div class="tags-list-body">
       <p>Мітки: 
         <% @article.tags.each do |tag| %>
           <span class="tag"><%= link_to tag.name, tag_path(tag.link_name) %></span>

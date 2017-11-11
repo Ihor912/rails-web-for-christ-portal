@@ -3,8 +3,14 @@ a.back_to_top {
     width: 60px;
     height: 60px;
     position: fixed;
-    bottom: 60px;
-    right: 177px;
+    @media only screen and (min-width: 768px) {
+        right: 177px;
+        bottom: 60px;
+    }
+    @media only screen and (max-width: 768px) {
+        left: 25px;
+        bottom: 25px;
+    }
     background: #9c9c9c asset_url("up_arrow.png") no-repeat center 43%;
     text-indent: -9999px;
   

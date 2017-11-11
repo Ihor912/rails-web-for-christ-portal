@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Web For Christ</title>
+    <title>Пізнати істину</title>
     <%= csrf_meta_tags %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
       <header>
         <%= render 'layouts/navmenu' %>
         <%= link_to root_path do %>
-          <div class="center-align vertical-small-paddings">
+          <div class="center-align">
             <div class="site-title"><b>ПІЗНАТИ ІСТИНУ</b></div>
             <p>...і Істина зробить вас <span class="tag"> вільними</span>!</p>
           </div>
@@ -29,10 +29,10 @@
       </header>
 
       <div class="row">
-        <div class="col place-left">
+        <div class="col-8 col-m-8 place-left">
           <%= yield %>
         </div>
-        <div class="col small-col place-right">
+        <div class="col-4 col-m-4 place-right">
           <%= render 'questions/questions_banner' %>
           <%= render 'tags/tagslist', tags: Tag.all %>
           <%= render 'articles/small_post_list', articles: Article.all.most_popular %>
