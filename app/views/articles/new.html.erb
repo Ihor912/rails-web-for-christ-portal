@@ -1,7 +1,7 @@
-<div style="margin-left: 15px;">
-  <%= link_to articles_path do %>
-    <button class="button padding-large border"> <b>Назад до усіх статтей</b> </button>
-  <% end %>
+<div class="post-toolbar">
+    <%= link_to articles_path do %>
+        <button class="button padding-large border"> <b>Назад до усіх статтей</b> </button>
+    <% end %>
 </div>
 
 <div class="post-container">
@@ -10,7 +10,5 @@
             <b class="place-left">Нова стаття</b>
         </h2>
     </div>
-    <div class="container-without-padding">
-        <%= render 'form', article: @article %>
-    </div>
+    <%= render 'form', article: @article %>
 </div>

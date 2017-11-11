@@ -1,7 +1,7 @@
-<div style="margin-left: 15px;">
-  <%= link_to tags_path do %>
-    <button class="button padding-large border">Назад до усіх тегів</button>
-  <% end %>
+<div class="post-toolbar">
+    <%= link_to tags_path do %>
+        <button class="button padding-large border">Назад до усіх тегів</button>
+    <% end %>
 </div>
 
 <div class="post-container">
@@ -10,7 +10,5 @@
             <b class="place-left">Редагувати тег</b>
         </h2>
     </div>
-    <div class="container-without-padding">
-        <%= render 'tags/form', tag: @tag %>
-    </div>
+    <%= render 'tags/form', tag: @tag %>
 </div>
