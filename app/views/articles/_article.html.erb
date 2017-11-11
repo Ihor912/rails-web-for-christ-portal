@@ -4,7 +4,7 @@
 <div class="container">	
 	<h3>
 		<b class="place-left"><%= link_to article.title, article_path(article.link_name) %></b>
-		<span class="date-label place-right"> Змінено <%= get_date article.created_at %> тому</em></span>
+		<span class="date-label place-right"> Додано <%= get_date article.created_at %> тому</em></span>
 	</h3>
 </div>
 <div class="container">
@@ -16,7 +16,7 @@
 				<% end %> </p>
         </div>
         <div class="place-right">
-          	<p><span class="padding-large">
+          	<p><span class="view-count-label">
 				<b>Переглядів:  </b> 
 				<span class="tag"><%= article.views != 0 ? article.views : '' %></span>
 			</span></p>

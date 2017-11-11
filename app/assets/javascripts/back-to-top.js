@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+document.addEventListener("turbolinks:load", function() {
     $('body').prepend('<a href="#" class="back_to_top">Повернутись вгору</a>');
 
     var amountScrolled = 300;

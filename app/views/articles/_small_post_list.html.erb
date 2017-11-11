@@ -6,7 +6,9 @@
 		<% articles.each do |article| %>
 			<li>
 				<%= link_to article_path(article.link_name) do %>
-					<%= image_tag article.image_url(:thumbnail), alt: "Image", class: "place-left" %>
+					<div class="post-thumb">
+						<%= image_tag article.image_url(:thumbnail), alt: "Image" %>
+					</div>
 					<span class="label"><%= truncate(article.title, length: 57) %></span><br>
 					<span><%= truncate(article.body, length: 33) %></span>
 				<% end %>
