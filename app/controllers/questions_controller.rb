@@ -4,7 +4,8 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :approve, :disapprove]
 
   def index
-    @questions = Question.where(approved: true)
+    @page = (params[:page] || 0).to_i
+    @questions = Question.where(approved: true).offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
   end
 
   def index_all_not_approved

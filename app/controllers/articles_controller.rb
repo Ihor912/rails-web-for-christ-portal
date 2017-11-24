@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
   before_action :get_article, only: [:show, :edit, :update, :destroy, :article_popularity_rate]
 
   def index
-  	@articles = Article.all.order('created_at DESC')
+    @page = (params[:page] || 0).to_i
+  	@articles = Article.all.order('created_at DESC').offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
     @tags = Tag.all
     @popular_articles = Article.all.most_popular
   end

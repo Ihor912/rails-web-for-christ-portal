@@ -4,7 +4,8 @@ class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
 
   def index
-    @quotes = Quote.all
+    @page = (params[:page] || 0).to_i
+    @quotes = Quote.all.offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
   end
 
   def show

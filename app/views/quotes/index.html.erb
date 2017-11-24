@@ -25,3 +25,13 @@
     </div>
   </div>
 <% end %>
+
+<% if @quotes.present? %>
+  <br>
+  <div class="center-align">
+    <% if @page > 0 %>
+      <%= link_to quotes_path(page: @page - 1) do %> <button class="button border">&larr; Попередня</button> <% end %>
+    <% end %>
+    <%= link_to quotes_path(page: @page + 1) do %> <button class="button border">Наступна &rarr;</button> <% end %>
+  </div>
+<% end %>

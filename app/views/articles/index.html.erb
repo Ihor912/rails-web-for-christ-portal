@@ -3,3 +3,13 @@
     <%= render article %>
   </div>
 <% end %>
+
+<% if @articles.present? %>
+  <br>
+  <div class="center-align">
+    <% if @page > 0 %>
+      <%= link_to articles_path(page: @page - 1) do %> <button class="button border">&larr; Попередня</button> <% end %>
+    <% end %>
+    <%= link_to articles_path(page: @page + 1) do %> <button class="button border">Наступна &rarr;</button> <% end %>
+  </div>
+<% end %>
