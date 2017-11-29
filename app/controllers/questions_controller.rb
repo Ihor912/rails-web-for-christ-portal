@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
 
   def index
     @page = (params[:page] || 0).to_i
-    @questions = Question.where(approved: true).offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+    @questions = Question.where(approved: true).offset(PAGE_SIZE * @page).limit(PAGE_SIZE).order('created_at DESC')
   end
 
   def index_all_not_approved
