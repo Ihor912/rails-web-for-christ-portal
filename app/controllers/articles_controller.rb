@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   def index
     @page = (params[:page] || 0).to_i
-  	@articles = Article.all.order('created_at DESC').offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+  	@articles = Article.all.order(:created_at).offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
     @tags = Tag.all
     @popular_articles = Article.all.most_popular
   end
@@ -43,6 +43,14 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     redirect_to root_path
+  end
+
+  def sort_by_date
+    @articles = Article.all.order('created_at DESC')
+  end
+
+  def sort_by_popularity
+    @articles = Article.all.most_popular
   end
 
   private
