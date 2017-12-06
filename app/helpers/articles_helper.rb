@@ -7,4 +7,9 @@ module ArticlesHelper
       user = User.find(article.user_id)
       user.email.split('@')[0].capitalize
     end
+
+  def sortable(title, column, direction)
+    direction = sort_direction == "asc" ? "desc" : "asc"
+    link_to "#{title}", {:controller => "articles", :action => "index", :filter => {column => direction}}
+  end
 end
