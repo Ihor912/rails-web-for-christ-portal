@@ -6,6 +6,8 @@ class QuotesController < ApplicationController
   def index
     @page = (params[:page] || 0).to_i
     @quotes = Quote.all.offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+    @meta_title = "Цитати відомих людей про Бога та Біблію - #{@root_meta_title}"
+    @meta_description = 'Вислови відомих людей про Бога та Біблію'
   end
 
   def show

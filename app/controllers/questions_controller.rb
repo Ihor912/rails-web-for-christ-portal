@@ -6,6 +6,8 @@ class QuestionsController < ApplicationController
   def index
     @page = (params[:page] || 0).to_i
     @questions = Question.where(approved: true).offset(PAGE_SIZE * @page).limit(PAGE_SIZE).order('created_at DESC')
+    @meta_title = "Запитання - #{@root_meta_title}"
+    @meta_description = "Маєш запитання Анонімні запитання - #{@root_meta_title}"
   end
 
   def index_all_not_approved
@@ -17,6 +19,8 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @meta_title = "Нове запитання - #{@root_meta_title}"
+    @meta_description = "Маєш запитання? Задавай, не зволікай! - #{@root_meta_title}"
   end
 
   def edit

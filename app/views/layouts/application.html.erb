@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Пізнати істину</title>
+    <title><%= @meta_title %></title>
+    <% if @meta_description.present? %>
+      <meta name=”description” content=”<%= @meta_description %>”>
+    <% end %>
     <%= csrf_meta_tags %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">

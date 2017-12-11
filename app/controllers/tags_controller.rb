@@ -12,6 +12,7 @@ class TagsController < ApplicationController
   def show
   	@tags = Tag.all
     @articles = @tag.articles
+    @meta_title = "#{@tag.name} - #{@root_meta_title}"
   end
 
   def create

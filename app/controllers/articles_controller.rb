@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   	@articles = Article.all.order(:created_at).offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
     @tags = Tag.all
     @popular_articles = Article.all.most_popular
+    @meta_description = 'Істина Пізнати Істину Знайти Істину Сенс Життя'
   end
 
   def new
@@ -27,6 +28,7 @@ class ArticlesController < ApplicationController
 
   def show
     article_popularity_rate
+    @meta_title = "#{@article.title} - #{@root_meta_title}"
   end
 
   def edit
