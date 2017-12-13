@@ -1,0 +1,8 @@
+Сортувати по:
+<%= sortable 'Даті', 'created_at', 'asc' %>
+<%= sortable 'Імені', 'title', 'asc' %>
+<%= sortable 'Популярності', 'views', 'desc' %>
+<%= form_for('/', method: :get) do %>
+  <%= text_field_tag :query %>
+  <%= submit_tag 'Знайти', name: nil %>
+<% end %>
