@@ -37,7 +37,11 @@
         </div>
         <div class="col-4 col-m-4 place-right">
           <%= render 'questions/questions_banner' %>
+          <%= render 'articles/search_form' %>
           <%= render 'tags/tagslist', tags: Tag.all %>
+          <% if current_page?(root_path) || current_page?(articles_path)  %>
+            <%= render 'articles/sorting_panel' %>
+          <% end %>
           <%= render 'articles/small_post_list', articles: Article.all.most_popular %>
           <%= render 'quotes/quotes_banner' %>
         </div>

@@ -1,0 +1,27 @@
+<div class="side-panel">
+	<div class="container">
+		<h4>Пошук по статтях</h4>
+	</div>
+	<div class="container side-panel-body">
+		<p>
+			<%= form_for('/', method: :get, :html => { :class => 'form' }) do %>
+        <div class="row">
+          <div class="place-left text-container">
+            <%= text_field_tag :query, nil, placeholder: 'Введіть значення...' %>
+          </div>
+          <div class="place-right buttons-container">
+            <div class="row">
+              <div class="place-left button-container">
+                <%= submit_tag 'Знайти', name: nil, class: "form-button" %>
+              </div>
+              <div class="place-right button-container">
+                <%= link_to root_path do %> <button class="form-button">Скинути</button> <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+		</p>
+	</div>
+</div>
+<hr>

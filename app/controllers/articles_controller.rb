@@ -2,10 +2,16 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_if_its_not_admin?, only: [:edit, :destroy]
   before_action :get_article, only: [:show, :edit, :update, :destroy, :article_popularity_rate]
+  helper_method :sort_direction
 
   def index
     @page = (params[:page] || 0).to_i
-  	@articles = Article.all.order(:created_at).offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+    if params[:query]
+      @articles = Article.full_text_search(params[:query]).offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+    else
+      condition = params[:filter] ? params[:filter].keys.join + ' ' + params[:filter].values.join : 'created_at'
+      @articles = Article.all.order(condition).offset(PAGE_SIZE * @page).limit(PAGE_SIZE)  
+    end
     @tags = Tag.all
     @popular_articles = Article.all.most_popular
     @meta_description = 'Істина Пізнати Істину Знайти Істину Сенс Життя'
@@ -76,6 +82,10 @@ class ArticlesController < ApplicationController
       flash[:alert] = "Будь-ласка ввійдіть під своїм логіном"
       redirect_to new_user_session_path
     end
+  end
+
+  def sort_direction
+    params[:filter] ? params[:filter].values.join : 'asc'
   end
 
 end

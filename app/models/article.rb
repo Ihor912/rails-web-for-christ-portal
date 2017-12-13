@@ -1,5 +1,11 @@
 class Article < ApplicationRecord
+	include PgSearch
 	mount_uploader :image, ImageUploader
+	pg_search_scope :full_text_search,
+					:against => [:title, :body],
+					:using => {
+						:tsearch => {:prefix => true}
+					}
 	belongs_to :user
 	has_and_belongs_to_many :tags
 	
